@@ -90,7 +90,7 @@ class UtilTest extends TestCase
         $this->assertEquals('0000123400', Util::formatCnab('9', '1234', 10, 2));
         $this->assertEquals('ABC       ', Util::formatCnab('X', 'ABC', 10));
 
-        $this->setExpectedException(\Exception::class);
+        $this->expectException(\Exception::class);
         Util::formatCnab('J', '123', 10);
     }
 
@@ -118,7 +118,7 @@ class UtilTest extends TestCase
 
         $this->assertEquals('', Util::nReal('ABC'));
         $this->assertEquals('', Util::nReal(null));
-        $this->assertEquals('R$ 1.000,00', Util::nReal(1000));
+        $this->assertEquals('R$  1.000,00', Util::nReal(1000));
         $this->assertEquals('R$ 1.000,000', Util::nReal(1000, 3));
         $this->assertEquals('1.000,000', Util::nReal(1000, 3, false));
         $this->assertEquals('1.000,123', Util::nReal(1000.123000000, false, false));
